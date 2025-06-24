@@ -412,9 +412,17 @@ public class BaseBar implements Bar {
     public String toString() {
         return String.format(
                 "{end time: %1s, close price: %2$f, open price: %3$f, low price: %4$f, high price: %5$f, volume: %6$f}",
-                endTime.withZoneSameInstant(ZoneId.systemDefault()), closePrice.doubleValue(), openPrice.doubleValue(),
+                endTime, closePrice.doubleValue(), openPrice.doubleValue(),
                 lowPrice.doubleValue(), highPrice.doubleValue(), volume.doubleValue());
     }
+    
+//    @Override
+//    public String toString() {
+//        return String.format(
+//                "{end time: %1s, close price: %2$f, open price: %3$f, low price: %4$f, high price: %5$f, volume: %6$f}",
+//                endTime.withZoneSameInstant(ZoneId.systemDefault()), closePrice.doubleValue(), openPrice.doubleValue(),
+//                lowPrice.doubleValue(), highPrice.doubleValue(), volume.doubleValue());
+//    }
 
     /**
      * @param timePeriod the time period

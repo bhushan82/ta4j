@@ -61,6 +61,17 @@ public class Position implements Serializable {
 
     /** The cost model for holding the asset */
     private final transient CostModel holdingCostModel;
+    
+    /** CUSTOM initial stopLossLevel */
+    private Num entryPrice;
+    
+    /** CUSTOM initial stopLossLevel */
+    private Num predefinedStopLossLevel;
+    
+    /** CUSTOM initial firstTargetLevel */
+    private Num predefinedFirstTargetLevel;
+    
+    private boolean isFirstTargetHit;
 
     /** Constructor with {@link #startingType} = BUY. */
     public Position() {
@@ -144,7 +155,39 @@ public class Position implements Serializable {
         return exit;
     }
 
-    @Override
+	public Num getEntryPrice() {
+		return entryPrice;
+	}
+
+	public void setEntryPrice(Num entryPrice) {
+		this.entryPrice = entryPrice;
+	}
+
+	public Num getPredefinedStopLossLevel() {
+		return predefinedStopLossLevel;
+	}
+
+	public void setPredefinedStopLossLevel(Num predefinedStopLossLevel) {
+		this.predefinedStopLossLevel = predefinedStopLossLevel;
+	}
+
+	public Num getPredefinedFirstTargetLevel() {
+		return predefinedFirstTargetLevel;
+	}
+
+	public void setPredefinedFirstTargetLevel(Num predefinedFirstTargetLevel) {
+		this.predefinedFirstTargetLevel = predefinedFirstTargetLevel;
+	}
+
+	public boolean isFirstTargetHit() {
+		return isFirstTargetHit;
+	}
+
+	public void setFirstTargetHit(boolean isFirstTargetHit) {
+		this.isFirstTargetHit = isFirstTargetHit;
+	}
+
+	@Override
     public boolean equals(Object obj) {
         if (obj instanceof Position) {
             Position p = (Position) obj;
@@ -427,4 +470,5 @@ public class Position implements Serializable {
     public String toString() {
         return "Entry: " + entry + " exit: " + exit;
     }
+    
 }
